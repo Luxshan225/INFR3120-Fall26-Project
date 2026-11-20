@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>List an item | Campus Gear Board</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <main class="container">
+    <a href="/">← Back to listings</a>
+    <h1>List an item</h1>
+    <p>Listings are public. Use a campus pickup spot and leave out personal details.</p>
+
+    <% if (errors.length > 0) { %>
+      <ul class="errors" role="alert">
+        <% for (const error of errors) { %>
+          <li><%= error %></li>
+        <% } %>
+      </ul>
+    <% } %>
+
+    <form action="/listings" method="post">
+      <label for="name">Item name</label>
+      <input id="name" name="name" value="<%= values.name || '' %>"
+             maxlength="80" required>
+
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option value="">Choose a category</option>
+        <% for (const category of categories) { %>
+          <option value="<%= category %>" <%= values.category === category ? 'selected' : '' %>>
+            <%= category %>
+          </option>
+        <% } %>
+      </select>
+
+      <label for="pickup">Campus pickup location</label>
+      <input id="pickup" name="pickup" value="<%= values.pickup || '' %>"
+             placeholder="e.g. Library entrance" maxlength="80" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5"
+                maxlength="300" required><%= values.description || '' %></textarea>
+
+      <button class="button" type="submit">Publish listing</button>
+    </form>
+  </main>
+</body>
+</html>

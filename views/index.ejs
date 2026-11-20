@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Gear Board</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="brand">
+      <span class="logo" aria-hidden="true">CG</span>
+      <span>Campus Gear Team</span>
+    </header>
+
+    <section class="hero">
+      <h1>Campus Gear Board</h1>
+      <p>Find equipment to borrow or list something you’re willing to lend.</p>
+      <a class="button" href="/listings/new">List an item</a>
+    </section>
+
+    <section aria-labelledby="listings-heading">
+      <h2 id="listings-heading">Gear listings</h2>
+      <% if (listings.length === 0) { %>
+        <p>No gear has been listed yet. Use “List an item” to add the first one.</p>
+      <% } else { %>
+        <div class="table-wrap">
+          <table aria-labelledby="listings-heading">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Category</th>
+                <th scope="col">Campus pickup</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const item of listings) { %>
+                <tr>
+                  <td><%= item.name %></td>
+                  <td><%= item.category %></td>
+                  <td><%= item.pickup %></td>
+                  <td><%= item.description %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      <% } %>
+    </section>
+  </main>
+</body>
+</html>
