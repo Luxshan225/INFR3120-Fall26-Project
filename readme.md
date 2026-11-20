@@ -22,3 +22,5 @@ Run locally
 5. Once the terminal says the app is listening, open http://localhost:3000. Keep the terminal running while you use the site.
 On Windows PowerShell, use npm.cmd ci and npm.cmd start if PowerShell blocks the npm script. If the app says Set MONGODB_URI before starting the application, check that the saved file is named exactly .env and contains a line starting with MONGODB_URI=.
 
+https://github.com/Luxshan225/INFR3120-Fall26-Project.git
+https://campus-gear-board.onrender.com
